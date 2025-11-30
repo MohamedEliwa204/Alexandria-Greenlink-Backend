@@ -1,3 +1,8 @@
 spring:
   application:
     name: Greenlink Backend
+application:
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET_KEY}  # <--- It reads this from your PC/Server
+      expiration: 86400000

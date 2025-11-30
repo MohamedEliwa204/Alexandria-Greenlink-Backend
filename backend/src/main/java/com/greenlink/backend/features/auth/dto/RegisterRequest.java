@@ -1,4 +1,11 @@
 package com.greenlink.backend.features.auth.dto;
 
-public record RegisterRequest() {
-}
+import lombok.Builder;
+
+@Builder
+public record RegisterRequest(
+        String firstname,
+        String lastname,
+        String email,
+        String password
+) {}
