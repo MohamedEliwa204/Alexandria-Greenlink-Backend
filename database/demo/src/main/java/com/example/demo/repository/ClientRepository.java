@@ -4,13 +4,16 @@
 package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    Client findByEmail(String Email);
+    @Query("SELECT c FROM Client c WHERE c.Email = :Email")
+    Client findByEmail(@Param("Email") String Email);
 }
 
 

@@ -12,7 +12,7 @@ import com.example.demo.entity.Ticket;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
-    List<Ticket> findAllByClient_id(Long Client_id);
+    List<Ticket> findAllByClientId(Long ClientId);
 }
 
 

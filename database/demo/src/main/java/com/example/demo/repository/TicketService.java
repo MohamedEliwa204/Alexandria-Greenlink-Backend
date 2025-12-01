@@ -18,7 +18,7 @@ public class TicketService {
     private ClientRepository ClientRepository;
 
     public List<Ticket> getAllTickets(String Email) {
-        return TicketRepository.findAllByClient_id(ClientRepository.findByEmail(Email).getId());
+        return TicketRepository.findAllByClientId(ClientRepository.findByEmail(Email).getId());
     }
 
     public Ticket getTicketByEmail(String Email) {
@@ -41,7 +41,7 @@ public class TicketService {
     public Ticket updateTicket(Long id, Ticket Ticket) {
         Ticket existingTicket = TicketRepository.findById(id).orElse(null);
         if (existingTicket != null) {
-            existingTicket.setClient_id(Ticket.getClient_id());
+            existingTicket.setClient_id(Ticket.getClientId());
             existingTicket.setPrice(Ticket.getPrice());
             existingTicket.setFrom(Ticket.getFrom());
             existingTicket.setTo(Ticket.getTo());

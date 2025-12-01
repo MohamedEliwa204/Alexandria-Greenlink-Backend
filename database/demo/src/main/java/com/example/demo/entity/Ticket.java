@@ -15,7 +15,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long Client_id;
+    private Long ClientId;
     private Long Price;
     private String From ;
     private String To ;
@@ -25,9 +25,9 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(Long id, Long Client_id, Long Price, String From, String To, LocalDate Date, Long TransNumber) {
+    public Ticket(Long id, Long ClientId, Long Price, String From, String To, LocalDate Date, Long TransNumber) {
         this.id = id;
-        this.Client_id = Client_id;
+        this.ClientId = ClientId;
         this.Price = Price;
         this.From = From;
         this.To = To;
@@ -42,12 +42,12 @@ public class Ticket {
         return id;
     }
 
-    public Long getClient_id() {
-        return Client_id;
+    public Long getClientId() {
+        return ClientId;
     }
 
-    public void setClient_id(Long Client_id) {
-        this.Client_id = Client_id;
+    public void setClient_id(Long ClientId) {
+        this.ClientId = ClientId;
     }
 
     public String getFrom() {
@@ -94,7 +94,7 @@ public class Ticket {
     public String toString() {
         return "Ticket{"
                 + "id=" + id
-                + "Client_id=" + Client_id
+                + "Client_id=" + ClientId
                 + ", Price='" + Price + '\''
                 + ", TransNumber='" + TransNumber + '\''
                 + ", To='" + To + '\''
