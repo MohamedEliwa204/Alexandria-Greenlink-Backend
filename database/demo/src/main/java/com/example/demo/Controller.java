@@ -50,6 +50,11 @@ public class Controller {
     public Ticket createTicket(@PathVariable String Email, @RequestBody Ticket Ticket) {
         return TicketService.createTicket(Ticket, Email);
     }
+
+    @PostMapping("/{Email}")
+    public Client createTicket(@PathVariable String Email) {
+        return ClientService.getClientByEmail(Email);
+    }
     
     @PutMapping("/{id}")
     public Client updateClient(@PathVariable Long id, @RequestBody Client Client) {
