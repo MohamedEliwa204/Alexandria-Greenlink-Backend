@@ -13,18 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Client;
+import com.example.demo.entity.Ticket;
 import com.example.demo.repository.ClientService;
+import com.example.demo.repository.TicketService;
 
 @RestController
 @RequestMapping("/Clients")
-public class ClientController {
+public class Controller {
   
     @Autowired
     private ClientService ClientService;
+    @Autowired
+    private TicketService TicketService;
     
     @GetMapping("")
     public List<Client> getAllClients() {
         return ClientService.getAllClients();
+    }
+
+    @GetMapping("/Tickets")
+    public List<Ticket> getAllTickets(@PathVariable String Email) {
+        return TicketService.getAllTickets(Email);
     }
     
     @GetMapping("/{id}")
@@ -35,6 +44,11 @@ public class ClientController {
     @PostMapping("")
     public Client createClient(@RequestBody Client Client) {
         return ClientService.createClient(Client);
+    }
+
+    @PostMapping("/CreateTicket/{Email}")
+    public Ticket createTicket(@PathVariable String Email, @RequestBody Ticket Ticket) {
+        return TicketService.createTicket(Ticket, Email);
     }
     
     @PutMapping("/{id}")
