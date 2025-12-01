@@ -55,6 +55,18 @@ public class Controller {
     public Client createTicket(@PathVariable String Email) {
         return ClientService.getClientByEmail(Email);
     }
+
+    @PostMapping("/Verify")
+    public boolean FindClient(@RequestBody Client Client) {
+        Client client = ClientService.getClientByEmail(Client.getEmail());
+        if(client==null){
+            return false;
+        }
+        if(client.getPassword()==Client.getPassword()){
+            return true;
+        }
+       return false;
+    }
     
     @PutMapping("/{id}")
     public Client updateClient(@PathVariable Long id, @RequestBody Client Client) {
