@@ -3,12 +3,18 @@ package com.example.demo.entity;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Tickets")
 public class Ticket {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long Client_id;
     private Long Price;
     private String From ;
@@ -19,13 +25,21 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(Long Client_id, Long Price, String From, String To, LocalDate Date, Long TransNumber) {
+    public Ticket(Long id, Long Client_id, Long Price, String From, String To, LocalDate Date, Long TransNumber) {
+        this.id = id;
         this.Client_id = Client_id;
         this.Price = Price;
         this.From = From;
         this.To = To;
         this.Date = Date;
         this.TransNumber = TransNumber;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public Long setId(Long id) {
+        return id;
     }
 
     public Long getClient_id() {
@@ -79,6 +93,7 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{"
+                + "id=" + id
                 + "Client_id=" + Client_id
                 + ", Price='" + Price + '\''
                 + ", TransNumber='" + TransNumber + '\''
