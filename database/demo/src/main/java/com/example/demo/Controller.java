@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Client;
+import com.example.demo.entity.ClientDTO;
+import com.example.demo.entity.ClientDTOmapper;
 import com.example.demo.entity.Ticket;
 import com.example.demo.repository.ClientService;
 import com.example.demo.repository.TicketService;
@@ -58,17 +60,17 @@ public class Controller {
     }
 
     @PostMapping("/Verify")
-    public boolean FindClient(@RequestBody Client Client) {
+    public ClientDTO FindClient(@RequestBody Client Client) {
         try{
         Client client = ClientService.getClientByEmail(Client.getEmail());
         System.out.println(client.getPassword());
         System.out.println(Client.getPassword());
         if(client.getPassword().equals(Client.getPassword())){
-            return true;
+            return new ClientDTOmapper().mapper(client);
         }
-       return false;
+       return null;
     }catch(Error e){
-        return false;
+        return null;
     }
     }
     
