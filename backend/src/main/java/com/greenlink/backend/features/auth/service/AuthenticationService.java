@@ -7,7 +7,6 @@ import com.greenlink.backend.features.auth.model.Role;
 import com.greenlink.backend.features.auth.model.User;
 import com.greenlink.backend.features.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,8 +28,11 @@ public class AuthenticationService {
                 .firstname(request.firstname())
                 .lastname(request.lastname())
                 .email(request.email())
+                .phone(request.phone())
                 .password(passwordEncoder.encode(request.password()))
                 .role(Role.USER)
+                .enabled(true)
+                .locked(false)
                 .build();
 
         repository.save(user);
