@@ -167,6 +167,11 @@ public class ComplaintService {
         User admin = userRepository.findByEmail(adminEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
 
+        // Check if the user has ADMIN role
+        if (admin.getRole() != com.greenlink.backend.features.auth.model.Role.ADMIN) {
+            throw new RuntimeException("Unauthorized: Only admins can respond to complaints");
+        }
+
         Complaint complaint = complaintRepository.findById(complaintId)
                 .orElseThrow(() -> new RuntimeException("Complaint not found"));
 
