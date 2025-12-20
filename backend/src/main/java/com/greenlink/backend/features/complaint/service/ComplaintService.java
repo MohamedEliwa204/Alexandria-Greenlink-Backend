@@ -197,14 +197,14 @@ public class ComplaintService {
                 .ticketTitle(complaint.getTicket().getTitle())
                 .userId(complaint.getUser().getId())
                 .userEmail(complaint.getUser().getEmail())
-                .userName(complaint.getUser().getFirstname() + " " + complaint.getUser().getLastname())
+                .userName(complaint.getUser().getUsername())
                 .response(complaint.getResponse())
                 .createdAt(complaint.getCreatedAt())
                 .resolvedAt(complaint.getResolvedAt());
 
         if (complaint.getRespondedBy() != null) {
             builder.respondedById(complaint.getRespondedBy().getId())
-                    .respondedByName(complaint.getRespondedBy().getFirstname() + " " + complaint.getRespondedBy().getLastname());
+                    .respondedByName(complaint.getRespondedBy().getUsername());
         }
 
         return builder.build();

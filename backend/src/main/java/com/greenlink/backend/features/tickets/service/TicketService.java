@@ -174,7 +174,7 @@ public class TicketService {
                 .location(ticket.getLocation())
                 .userId(ticket.getUser().getId())
                 .userEmail(ticket.getUser().getEmail())
-                .userName(ticket.getUser().getFirstname() + " " + ticket.getUser().getLastname())
+                .userName(ticket.getUser().getUsername())
                 .fromPlace(ticket.getFromPlace())
                 .toPlace(ticket.getToPlace())
                 .price(ticket.getPrice())
