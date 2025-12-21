@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateTicketRequest {
 
-    @NotBlank(message = "Title is required")
-    private String title;
 
 
     private String description;
@@ -26,7 +24,6 @@ public class CreateTicketRequest {
     @NotNull(message = "Category is required")
     private TicketCategory category;
 
-    private String location;
 
     @NotBlank(message = "From place is required")
     private String fromPlace;
@@ -34,6 +31,7 @@ public class CreateTicketRequest {
     @NotBlank(message = "To place is required")
     private String toPlace;
 
+    @NotNull(message = "Where is the price")
     private Double price;
 }
 

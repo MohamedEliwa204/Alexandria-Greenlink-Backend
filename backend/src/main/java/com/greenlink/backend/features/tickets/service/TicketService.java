@@ -28,11 +28,11 @@ public class TicketService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         Ticket ticket = Ticket.builder()
-                .title(request.getTitle())
+
                 .description(request.getDescription())
                 .status(request.getStatus())
                 .category(request.getCategory())
-                .location(request.getLocation())
+
                 .user(user)
                 .fromPlace(request.getFromPlace())
                 .toPlace(request.getToPlace())
@@ -85,9 +85,7 @@ public class TicketService {
         }
 
         // Update fields only if they are provided
-        if (request.getTitle() != null) {
-            ticket.setTitle(request.getTitle());
-        }
+
         if (request.getDescription() != null) {
             ticket.setDescription(request.getDescription());
         }
@@ -97,9 +95,7 @@ public class TicketService {
         if (request.getCategory() != null) {
             ticket.setCategory(request.getCategory());
         }
-        if (request.getLocation() != null) {
-            ticket.setLocation(request.getLocation());
-        }
+
         if (request.getFromPlace() != null) {
             ticket.setFromPlace(request.getFromPlace());
         }
@@ -167,14 +163,13 @@ public class TicketService {
     private TicketResponse mapToResponse(Ticket ticket) {
         return TicketResponse.builder()
                 .id(ticket.getId())
-                .title(ticket.getTitle())
+
                 .description(ticket.getDescription())
                 .status(ticket.getStatus())
                 .category(ticket.getCategory())
-                .location(ticket.getLocation())
-                .userId(ticket.getUser().getId())
-                .userEmail(ticket.getUser().getEmail())
-                .userName(ticket.getUser().getUsername())
+
+
+
                 .fromPlace(ticket.getFromPlace())
                 .toPlace(ticket.getToPlace())
                 .price(ticket.getPrice())

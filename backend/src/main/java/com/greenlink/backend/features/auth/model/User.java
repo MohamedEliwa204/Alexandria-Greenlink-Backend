@@ -38,6 +38,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Column(nullable = false)
+    @Builder.Default
+    private Double balance = 0.0;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

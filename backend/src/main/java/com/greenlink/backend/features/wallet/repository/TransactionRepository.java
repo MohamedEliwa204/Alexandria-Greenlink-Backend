@@ -1,0 +1,13 @@
+package com.greenlink.backend.features.wallet.repository;
+
+import com.greenlink.backend.features.wallet.model.Transaction;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
+    List<Transaction> findByUserIdOrderByTransactionDateDesc(Long userId);
+}
+

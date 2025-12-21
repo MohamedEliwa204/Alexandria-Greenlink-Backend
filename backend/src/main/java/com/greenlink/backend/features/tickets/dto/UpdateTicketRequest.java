@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateTicketRequest {
 
-    private String title;
+
 
     private String description;
 
@@ -20,7 +20,7 @@ public class UpdateTicketRequest {
 
     private TicketCategory category;
 
-    private String location;
+
 
     private String fromPlace;
 

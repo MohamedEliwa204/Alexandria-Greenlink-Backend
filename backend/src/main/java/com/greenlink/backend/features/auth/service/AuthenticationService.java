@@ -32,6 +32,7 @@ public class AuthenticationService {
                 .role(Role.USER)
                 .enabled(true)
                 .locked(false)
+                .balance(0.0)
                 .build();
 
         repository.save(user);

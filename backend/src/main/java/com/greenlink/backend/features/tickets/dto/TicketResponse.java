@@ -16,21 +16,20 @@ public class TicketResponse {
 
     private Long id;
 
-    private String title;
+
 
     private String description;
 
     private String status;
 
     private TicketCategory category;
-
-    private String location;
-
-    private Long userId;
-
-    private String userEmail;
-
-    private String userName;
+//
+//
+//    private Long userId;
+//
+//    private String userEmail;
+//
+//    private String userName;
 
     private String fromPlace;
 
