@@ -34,6 +34,7 @@ public class TicketService {
                 .category(request.getCategory())
 
                 .user(user)
+                .title("Successfull Booking")
                 .fromPlace(request.getFromPlace())
                 .toPlace(request.getToPlace())
                 .price(request.getPrice())

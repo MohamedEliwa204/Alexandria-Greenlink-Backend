@@ -51,7 +51,8 @@ public class AuthenticationService {
                         request.password()
                 )
         );
-
+        System.out.println(request.email());
+        System.out.println(request.password());
         var user = repository.findByEmail(request.email())
                 .orElseThrow();
 

@@ -43,7 +43,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         jwt = authHeader.substring(7);
 
-        userEmail = jwtService.extractUsername(jwt);
+                if (jwt.isBlank()) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        // ✅ 3. Now it's safe to parse
+        try {
+            userEmail = jwtService.extractUsername(jwt);
+        } catch (Exception e) {
+            // Invalid JWT → skip auth, do NOT crash
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 

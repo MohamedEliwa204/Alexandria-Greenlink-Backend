@@ -29,7 +29,7 @@ public class Transaction {
     private Double amount;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false,length = 50)
     private TransactionType type;
 
     @Column(nullable = false)
